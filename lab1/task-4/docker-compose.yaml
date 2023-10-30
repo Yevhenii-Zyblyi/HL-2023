@@ -1,0 +1,28 @@
+version: '3.0'
+
+services:
+  lite-server:
+    image: node
+    ports:
+      - "3000-3002" 
+    volumes:
+      - "./lite-server:/lite-server"
+    entrypoint: ["/lite-server/init.sh", ""]
+    network_mode: host
+  json-server:
+    image: node
+    ports:
+      - "3004-3006" 
+    volumes:
+      - "./json-server:/json-server"
+    entrypoint: ["/json-server/init.sh", ""]
+    network_mode: host
+  nginx:
+    image: nginx
+    network_mode: host
+    volumes:
+      - "./nginx.conf:/etc/nginx/nginx.conf"  
+    depends_on:
+      - json-server
+      - lite-server
+    
