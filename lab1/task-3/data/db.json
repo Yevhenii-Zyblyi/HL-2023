@@ -1,5 +1,5 @@
 {
-  "posts": [
+  "not_posts": [
     { "id": 1, "title": "json-server", "author": "typicode" },
     { "id": 2, "title": "Docker", "author": "me" }
   ],

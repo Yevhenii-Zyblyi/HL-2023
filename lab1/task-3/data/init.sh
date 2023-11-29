@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
-npm install -g json-server 
-cd data
-json-server --watch db.json
+cd app
+npm install json-server -g 
+json-server --watch db.json -H ${HOST} --port ${PORT}
